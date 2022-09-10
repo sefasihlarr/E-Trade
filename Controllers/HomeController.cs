@@ -22,7 +22,7 @@ namespace E_Trade.MvsWebUI.Controllers
 
         public ActionResult List()
         {
-            return View();
+            return View(_context.Products.ToList());
         }
     }
 }
