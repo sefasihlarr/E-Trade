@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Trade.MvsWebUI.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace E_Trade.MvsWebUI.Controllers
 {
     public class HomeController : Controller
     {
+        DataContext _context = new DataContext();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(_context.Products.ToList());
         }
         public ActionResult Details()
         {
@@ -20,7 +22,7 @@ namespace E_Trade.MvsWebUI.Controllers
 
         public ActionResult List()
         {
-            return View();
+            return View(_context.Products.ToList());
         }
     }
 }

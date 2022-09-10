@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2541bf596c824680ab98784e9a2fbdf2" Name="Diagram1">
+        <EntityTypeShape EntityType="developerModel.adisyonlar" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.hesapodemeleri" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.kategoriler" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.masalar" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.müsteriler" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.odemeturleri" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.paketsiparis" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.personelhareketleri" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.personeller" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.pesonelgorevleri" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.rezervasyolar" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.satislar" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.servisturu" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="developerModel.urunler" Width="1.5" PointX="11" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="developerModel.FK_adisyonlar_masalar" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_adisyonlar_personeller" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_hesapodemeleri_adisonlar" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_paketsiparis_adisyonlar" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_hesapodemeleri_odemeturleri" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_urunler_kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_paketsiparis_müsteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_paketsiparis_odemeturleri" ManuallyRouted="false" />
+        <AssociationConnector Association="developerModel.FK_personelhareketleri_personeller" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

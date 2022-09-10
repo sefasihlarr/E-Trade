@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="developerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adisyonlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="servisturno" Type="int" Nullable="false" />
+          <Property Name="personelid" Type="int" Nullable="false" />
+          <Property Name="masaid" Type="int" Nullable="false" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="hesapodemeleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="musteriid" Type="int" Nullable="false" />
+          <Property Name="adisyonid" Type="int" Nullable="false" />
+          <Property Name="odemeturid" Type="int" />
+          <Property Name="aratoplam" Type="money" />
+          <Property Name="indirim" Type="money" />
+          <Property Name="toplamtutar" Type="money" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="kategoriadi" Type="int" Nullable="false" />
+          <Property Name="aciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="masalar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="kapasite" Type="int" Nullable="false" />
+          <Property Name="servisturu" Type="int" Nullable="false" />
+          <Property Name="durum" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="müsteriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="1" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="odemeturleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="odemeturu" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="aciklama" Type="text" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="paketsiparis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="musteriid" Type="int" Nullable="false" />
+          <Property Name="adisyonid" Type="int" Nullable="false" />
+          <Property Name="odemeturid" Type="int" Nullable="false" />
+          <Property Name="aciklama" Type="text" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="personelhareketleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="personelid" Type="int" />
+          <Property Name="islem" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="tarih" Type="datetime" Nullable="false" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="personeller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="gorevid" Type="int" Nullable="false" />
+          <Property Name="ad" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="parola" Type="int" Nullable="false" />
+          <Property Name="kullaniciadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="pesonelgorevleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="gorev" Type="nvarchar" MaxLength="1" />
+          <Property Name="aciklama" Type="text" />
+          <Property Name="durum" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rezervasyolar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="musteriid" Type="int" Nullable="false" />
+          <Property Name="masaid" Type="int" Nullable="false" />
+          <Property Name="adisyonid" Type="int" Nullable="false" />
+          <Property Name="tarih" Type="datetime" />
+          <Property Name="kisisayisi" Type="int" />
+          <Property Name="aciklama" Type="text" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="satislar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="adisyonid" Type="int" Nullable="false" />
+          <Property Name="urunid" Type="int" Nullable="false" />
+          <Property Name="masaid" Type="int" Nullable="false" />
+          <Property Name="adet" Type="int" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="servisturu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="servisadi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="aciklama" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="kategoriid" Type="int" Nullable="false" />
+          <Property Name="urunadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="aciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="durum" Type="bit" />
+        </EntityType>
+        <Association Name="FK_adisyonlar_masalar">
+          <End Role="masalar" Type="Self.masalar" Multiplicity="1" />
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="masalar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="adisyonlar">
+              <PropertyRef Name="masaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adisyonlar_personeller">
+          <End Role="personeller" Type="Self.personeller" Multiplicity="1" />
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personeller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="adisyonlar">
+              <PropertyRef Name="personelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hesapodemeleri_adisonlar">
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="1" />
+          <End Role="hesapodemeleri" Type="Self.hesapodemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adisyonlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hesapodemeleri">
+              <PropertyRef Name="adisyonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hesapodemeleri_odemeturleri">
+          <End Role="odemeturleri" Type="Self.odemeturleri" Multiplicity="0..1" />
+          <End Role="hesapodemeleri" Type="Self.hesapodemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="odemeturleri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hesapodemeleri">
+              <PropertyRef Name="odemeturid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_adisyonlar">
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adisyonlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="adisyonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_müsteriler">
+          <End Role="müsteriler" Type="Self.müsteriler" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="müsteriler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="musteriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_odemeturleri">
+          <End Role="odemeturleri" Type="Self.odemeturleri" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="odemeturleri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="odemeturid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personelhareketleri_personeller">
+          <End Role="personeller" Type="Self.personeller" Multiplicity="0..1" />
+          <End Role="personelhareketleri" Type="Self.personelhareketleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personeller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="personelhareketleri">
+              <PropertyRef Name="personelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urunler_kategoriler">
+          <End Role="kategoriler" Type="Self.kategoriler" Multiplicity="1" />
+          <End Role="urunler" Type="Self.urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoriler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urunler">
+              <PropertyRef Name="kategoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="developerModelStoreContainer">
+          <EntitySet Name="adisyonlar" EntityType="Self.adisyonlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hesapodemeleri" EntityType="Self.hesapodemeleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kategoriler" EntityType="Self.kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="masalar" EntityType="Self.masalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="müsteriler" EntityType="Self.müsteriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="odemeturleri" EntityType="Self.odemeturleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paketsiparis" EntityType="Self.paketsiparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personelhareketleri" EntityType="Self.personelhareketleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personeller" EntityType="Self.personeller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pesonelgorevleri" EntityType="Self.pesonelgorevleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rezervasyolar" EntityType="Self.rezervasyolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="satislar" EntityType="Self.satislar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="servisturu" EntityType="Self.servisturu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="urunler" EntityType="Self.urunler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_adisyonlar_masalar" Association="Self.FK_adisyonlar_masalar">
+            <End Role="masalar" EntitySet="masalar" />
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_adisyonlar_personeller" Association="Self.FK_adisyonlar_personeller">
+            <End Role="personeller" EntitySet="personeller" />
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hesapodemeleri_adisonlar" Association="Self.FK_hesapodemeleri_adisonlar">
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+            <End Role="hesapodemeleri" EntitySet="hesapodemeleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hesapodemeleri_odemeturleri" Association="Self.FK_hesapodemeleri_odemeturleri">
+            <End Role="odemeturleri" EntitySet="odemeturleri" />
+            <End Role="hesapodemeleri" EntitySet="hesapodemeleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_adisyonlar" Association="Self.FK_paketsiparis_adisyonlar">
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_müsteriler" Association="Self.FK_paketsiparis_müsteriler">
+            <End Role="müsteriler" EntitySet="müsteriler" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_odemeturleri" Association="Self.FK_paketsiparis_odemeturleri">
+            <End Role="odemeturleri" EntitySet="odemeturleri" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personelhareketleri_personeller" Association="Self.FK_personelhareketleri_personeller">
+            <End Role="personeller" EntitySet="personeller" />
+            <End Role="personelhareketleri" EntitySet="personelhareketleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urunler_kategoriler" Association="Self.FK_urunler_kategoriler">
+            <End Role="kategoriler" EntitySet="kategoriler" />
+            <End Role="urunler" EntitySet="urunler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="developerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adisyonlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="servisturno" Type="Int32" Nullable="false" />
+          <Property Name="personelid" Type="Int32" Nullable="false" />
+          <Property Name="masaid" Type="Int32" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="masalar" Relationship="Self.FK_adisyonlar_masalar" FromRole="adisyonlar" ToRole="masalar" />
+          <NavigationProperty Name="personeller" Relationship="Self.FK_adisyonlar_personeller" FromRole="adisyonlar" ToRole="personeller" />
+          <NavigationProperty Name="hesapodemeleri" Relationship="Self.FK_hesapodemeleri_adisonlar" FromRole="adisyonlar" ToRole="hesapodemeleri" />
+          <NavigationProperty Name="paketsiparis" Relationship="Self.FK_paketsiparis_adisyonlar" FromRole="adisyonlar" ToRole="paketsiparis" />
+        </EntityType>
+        <EntityType Name="hesapodemeleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="musteriid" Type="Int32" Nullable="false" />
+          <Property Name="adisyonid" Type="Int32" Nullable="false" />
+          <Property Name="odemeturid" Type="Int32" />
+          <Property Name="aratoplam" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="indirim" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="toplamtutar" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="adisyonlar" Relationship="Self.FK_hesapodemeleri_adisonlar" FromRole="hesapodemeleri" ToRole="adisyonlar" />
+          <NavigationProperty Name="odemeturleri" Relationship="Self.FK_hesapodemeleri_odemeturleri" FromRole="hesapodemeleri" ToRole="odemeturleri" />
+        </EntityType>
+        <EntityType Name="kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="kategoriadi" Type="Int32" Nullable="false" />
+          <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="urunler" Relationship="Self.FK_urunler_kategoriler" FromRole="kategoriler" ToRole="urunler" />
+        </EntityType>
+        <EntityType Name="masalar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="kapasite" Type="Int32" Nullable="false" />
+          <Property Name="servisturu" Type="Int32" Nullable="false" />
+          <Property Name="durum" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="adisyonlar" Relationship="Self.FK_adisyonlar_masalar" FromRole="masalar" ToRole="adisyonlar" />
+        </EntityType>
+        <EntityType Name="müsteriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ad" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="soyad" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="paketsiparis" Relationship="Self.FK_paketsiparis_müsteriler" FromRole="müsteriler" ToRole="paketsiparis" />
+        </EntityType>
+        <EntityType Name="odemeturleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="odemeturu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="hesapodemeleri" Relationship="Self.FK_hesapodemeleri_odemeturleri" FromRole="odemeturleri" ToRole="hesapodemeleri" />
+          <NavigationProperty Name="paketsiparis" Relationship="Self.FK_paketsiparis_odemeturleri" FromRole="odemeturleri" ToRole="paketsiparis" />
+        </EntityType>
+        <EntityType Name="paketsiparis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="musteriid" Type="Int32" Nullable="false" />
+          <Property Name="adisyonid" Type="Int32" Nullable="false" />
+          <Property Name="odemeturid" Type="Int32" Nullable="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="adisyonlar" Relationship="Self.FK_paketsiparis_adisyonlar" FromRole="paketsiparis" ToRole="adisyonlar" />
+          <NavigationProperty Name="müsteriler" Relationship="Self.FK_paketsiparis_müsteriler" FromRole="paketsiparis" ToRole="müsteriler" />
+          <NavigationProperty Name="odemeturleri" Relationship="Self.FK_paketsiparis_odemeturleri" FromRole="paketsiparis" ToRole="odemeturleri" />
+        </EntityType>
+        <EntityType Name="personelhareketleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="personelid" Type="Int32" />
+          <Property Name="islem" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="personeller" Relationship="Self.FK_personelhareketleri_personeller" FromRole="personelhareketleri" ToRole="personeller" />
+        </EntityType>
+        <EntityType Name="personeller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="gorevid" Type="Int32" Nullable="false" />
+          <Property Name="ad" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soyad" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parola" Type="Int32" Nullable="false" />
+          <Property Name="kullaniciadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="adisyonlar" Relationship="Self.FK_adisyonlar_personeller" FromRole="personeller" ToRole="adisyonlar" />
+          <NavigationProperty Name="personelhareketleri" Relationship="Self.FK_personelhareketleri_personeller" FromRole="personeller" ToRole="personelhareketleri" />
+        </EntityType>
+        <EntityType Name="pesonelgorevleri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="gorev" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="durum" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rezervasyolar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="musteriid" Type="Int32" Nullable="false" />
+          <Property Name="masaid" Type="Int32" Nullable="false" />
+          <Property Name="adisyonid" Type="Int32" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" Precision="3" />
+          <Property Name="kisisayisi" Type="Int32" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="satislar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="adisyonid" Type="Int32" Nullable="false" />
+          <Property Name="urunid" Type="Int32" Nullable="false" />
+          <Property Name="masaid" Type="Int32" Nullable="false" />
+          <Property Name="adet" Type="Int32" />
+          <Property Name="durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="servisturu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="servisadi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="kategoriid" Type="Int32" Nullable="false" />
+          <Property Name="urunadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="durum" Type="Boolean" />
+          <NavigationProperty Name="kategoriler" Relationship="Self.FK_urunler_kategoriler" FromRole="urunler" ToRole="kategoriler" />
+        </EntityType>
+        <Association Name="FK_adisyonlar_masalar">
+          <End Role="masalar" Type="Self.masalar" Multiplicity="1" />
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="masalar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="adisyonlar">
+              <PropertyRef Name="masaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_adisyonlar_personeller">
+          <End Role="personeller" Type="Self.personeller" Multiplicity="1" />
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personeller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="adisyonlar">
+              <PropertyRef Name="personelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hesapodemeleri_adisonlar">
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="1" />
+          <End Role="hesapodemeleri" Type="Self.hesapodemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adisyonlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hesapodemeleri">
+              <PropertyRef Name="adisyonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_adisyonlar">
+          <End Role="adisyonlar" Type="Self.adisyonlar" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adisyonlar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="adisyonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hesapodemeleri_odemeturleri">
+          <End Role="odemeturleri" Type="Self.odemeturleri" Multiplicity="0..1" />
+          <End Role="hesapodemeleri" Type="Self.hesapodemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="odemeturleri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hesapodemeleri">
+              <PropertyRef Name="odemeturid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urunler_kategoriler">
+          <End Role="kategoriler" Type="Self.kategoriler" Multiplicity="1" />
+          <End Role="urunler" Type="Self.urunler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoriler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urunler">
+              <PropertyRef Name="kategoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_müsteriler">
+          <End Role="müsteriler" Type="Self.müsteriler" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="müsteriler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="musteriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_paketsiparis_odemeturleri">
+          <End Role="odemeturleri" Type="Self.odemeturleri" Multiplicity="1" />
+          <End Role="paketsiparis" Type="Self.paketsiparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="odemeturleri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paketsiparis">
+              <PropertyRef Name="odemeturid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personelhareketleri_personeller">
+          <End Role="personeller" Type="Self.personeller" Multiplicity="0..1" />
+          <End Role="personelhareketleri" Type="Self.personelhareketleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personeller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="personelhareketleri">
+              <PropertyRef Name="personelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="developerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adisyonlar" EntityType="Self.adisyonlar" />
+          <EntitySet Name="hesapodemeleri" EntityType="Self.hesapodemeleri" />
+          <EntitySet Name="kategoriler" EntityType="Self.kategoriler" />
+          <EntitySet Name="masalar" EntityType="Self.masalar" />
+          <EntitySet Name="müsteriler" EntityType="Self.müsteriler" />
+          <EntitySet Name="odemeturleri" EntityType="Self.odemeturleri" />
+          <EntitySet Name="paketsiparis" EntityType="Self.paketsiparis" />
+          <EntitySet Name="personelhareketleri" EntityType="Self.personelhareketleri" />
+          <EntitySet Name="personeller" EntityType="Self.personeller" />
+          <EntitySet Name="pesonelgorevleri" EntityType="Self.pesonelgorevleri" />
+          <EntitySet Name="rezervasyolar" EntityType="Self.rezervasyolar" />
+          <EntitySet Name="satislar" EntityType="Self.satislar" />
+          <EntitySet Name="servisturu" EntityType="Self.servisturu" />
+          <EntitySet Name="urunler" EntityType="Self.urunler" />
+          <AssociationSet Name="FK_adisyonlar_masalar" Association="Self.FK_adisyonlar_masalar">
+            <End Role="masalar" EntitySet="masalar" />
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_adisyonlar_personeller" Association="Self.FK_adisyonlar_personeller">
+            <End Role="personeller" EntitySet="personeller" />
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hesapodemeleri_adisonlar" Association="Self.FK_hesapodemeleri_adisonlar">
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+            <End Role="hesapodemeleri" EntitySet="hesapodemeleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_adisyonlar" Association="Self.FK_paketsiparis_adisyonlar">
+            <End Role="adisyonlar" EntitySet="adisyonlar" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hesapodemeleri_odemeturleri" Association="Self.FK_hesapodemeleri_odemeturleri">
+            <End Role="odemeturleri" EntitySet="odemeturleri" />
+            <End Role="hesapodemeleri" EntitySet="hesapodemeleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urunler_kategoriler" Association="Self.FK_urunler_kategoriler">
+            <End Role="kategoriler" EntitySet="kategoriler" />
+            <End Role="urunler" EntitySet="urunler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_müsteriler" Association="Self.FK_paketsiparis_müsteriler">
+            <End Role="müsteriler" EntitySet="müsteriler" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_paketsiparis_odemeturleri" Association="Self.FK_paketsiparis_odemeturleri">
+            <End Role="odemeturleri" EntitySet="odemeturleri" />
+            <End Role="paketsiparis" EntitySet="paketsiparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personelhareketleri_personeller" Association="Self.FK_personelhareketleri_personeller">
+            <End Role="personeller" EntitySet="personeller" />
+            <End Role="personelhareketleri" EntitySet="personelhareketleri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="developerModelStoreContainer" CdmEntityContainer="developerEntities">
+          <EntitySetMapping Name="adisyonlar">
+            <EntityTypeMapping TypeName="developerModel.adisyonlar">
+              <MappingFragment StoreEntitySet="adisyonlar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="servisturno" ColumnName="servisturno" />
+                <ScalarProperty Name="personelid" ColumnName="personelid" />
+                <ScalarProperty Name="masaid" ColumnName="masaid" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hesapodemeleri">
+            <EntityTypeMapping TypeName="developerModel.hesapodemeleri">
+              <MappingFragment StoreEntitySet="hesapodemeleri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="musteriid" ColumnName="musteriid" />
+                <ScalarProperty Name="adisyonid" ColumnName="adisyonid" />
+                <ScalarProperty Name="odemeturid" ColumnName="odemeturid" />
+                <ScalarProperty Name="aratoplam" ColumnName="aratoplam" />
+                <ScalarProperty Name="indirim" ColumnName="indirim" />
+                <ScalarProperty Name="toplamtutar" ColumnName="toplamtutar" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategoriler">
+            <EntityTypeMapping TypeName="developerModel.kategoriler">
+              <MappingFragment StoreEntitySet="kategoriler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="kategoriadi" ColumnName="kategoriadi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="masalar">
+            <EntityTypeMapping TypeName="developerModel.masalar">
+              <MappingFragment StoreEntitySet="masalar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="kapasite" ColumnName="kapasite" />
+                <ScalarProperty Name="servisturu" ColumnName="servisturu" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="müsteriler">
+            <EntityTypeMapping TypeName="developerModel.müsteriler">
+              <MappingFragment StoreEntitySet="müsteriler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="odemeturleri">
+            <EntityTypeMapping TypeName="developerModel.odemeturleri">
+              <MappingFragment StoreEntitySet="odemeturleri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="odemeturu" ColumnName="odemeturu" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paketsiparis">
+            <EntityTypeMapping TypeName="developerModel.paketsiparis">
+              <MappingFragment StoreEntitySet="paketsiparis">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="musteriid" ColumnName="musteriid" />
+                <ScalarProperty Name="adisyonid" ColumnName="adisyonid" />
+                <ScalarProperty Name="odemeturid" ColumnName="odemeturid" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personelhareketleri">
+            <EntityTypeMapping TypeName="developerModel.personelhareketleri">
+              <MappingFragment StoreEntitySet="personelhareketleri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="personelid" ColumnName="personelid" />
+                <ScalarProperty Name="islem" ColumnName="islem" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personeller">
+            <EntityTypeMapping TypeName="developerModel.personeller">
+              <MappingFragment StoreEntitySet="personeller">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="gorevid" ColumnName="gorevid" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="parola" ColumnName="parola" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pesonelgorevleri">
+            <EntityTypeMapping TypeName="developerModel.pesonelgorevleri">
+              <MappingFragment StoreEntitySet="pesonelgorevleri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="gorev" ColumnName="gorev" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rezervasyolar">
+            <EntityTypeMapping TypeName="developerModel.rezervasyolar">
+              <MappingFragment StoreEntitySet="rezervasyolar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="musteriid" ColumnName="musteriid" />
+                <ScalarProperty Name="masaid" ColumnName="masaid" />
+                <ScalarProperty Name="adisyonid" ColumnName="adisyonid" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="kisisayisi" ColumnName="kisisayisi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="satislar">
+            <EntityTypeMapping TypeName="developerModel.satislar">
+              <MappingFragment StoreEntitySet="satislar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="adisyonid" ColumnName="adisyonid" />
+                <ScalarProperty Name="urunid" ColumnName="urunid" />
+                <ScalarProperty Name="masaid" ColumnName="masaid" />
+                <ScalarProperty Name="adet" ColumnName="adet" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servisturu">
+            <EntityTypeMapping TypeName="developerModel.servisturu">
+              <MappingFragment StoreEntitySet="servisturu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="servisadi" ColumnName="servisadi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urunler">
+            <EntityTypeMapping TypeName="developerModel.urunler">
+              <MappingFragment StoreEntitySet="urunler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="kategoriid" ColumnName="kategoriid" />
+                <ScalarProperty Name="urunadi" ColumnName="urunadi" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="durum" ColumnName="durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

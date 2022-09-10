@@ -1,4 +1,5 @@
-﻿
+﻿@using E_Trade.MvsWebUI.Entity;
+@model IEnumerable<Product>
 @{
     ViewBag.Title = "Index";
 }
@@ -40,71 +41,29 @@
             <img class="card-img-top" src="~/Theme/img/caurosel-2.png" alt="Card image">
         </div>
     </div>
-    
+
 </div>
+
 <div class="row" id="index-card">
-    <div class="content col-md-3">
-        <img class="card-img" src="~/Theme/img/a-7.jpg" alt="">
-        <div class="card-body">
-            <h5 class="acrd-title">card-title</h5>
-            <p class="card-text">this is card longer</p>
-            <ul>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star "></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <button><small class="card-muted">Button</small></button>
-        </div>
-    </div>
 
-    <div class="content col-md-3">
-        <img class="card-img" src="~/Theme/img/shos-12.jpg" alt="">
-        <div class="card-body">
-            <h5 class="acrd-title">card-title</h5>
-            <p class="card-text">this is card longer</p>
-            <ul>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <button><small class="card-muted">Button</small></button>
-        </div>
-    </div>
-
-    <div class="content col-md-3">
-        <img class="card-img" src="~/Theme/img/s-7.jpg" alt="">
-        <div class="card-body">
-            <h5 class="acrd-title">card-title</h5>
-            <p class="card-text">this is card longer</p>
-            <ul>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star checked"></i></li>
-            </ul>
-            <button><small class="card-muted">Button</small></button>
-        </div>
-    </div>
-
-    <div class="content col-md-3">
-        <img class="card-img" src="~/Theme/img/a-8.jpg" alt="">
-        <div class="card-body">
-            <h5 class="acrd-title">card-title</h5>
-            <p class="card-text">this is card longer</p>
-            <ul>
-                <li><i class="fa fa-star checked"></i></li>
-                <li><i class="fa fa-star "></i></li>
-                <li><i class="fa fa-star "></i></li>
-                <li><i class="fa fa-star "></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
-            <button><small class="card-muted">Button</small></button>
-        </div>
-    </div>
+    @foreach (var item in Model)
+    {
+            <div class="content col-md-3">
+                <img class="card-img" src="@item.PictureUrl" alt="">
+                <div class="card-body">
+                    <h5 class="acrd-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <ul>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star checked"></i></li>
+                        <li><i class="fa fa-star "></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <button><small class="card-muted">Button</small></button>
+                </div>
+            </div>
+     }
+        
 </div>
 
