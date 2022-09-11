@@ -15,9 +15,9 @@ namespace E_Trade.MvsWebUI.Controllers
         {
             return View(_context.Products.ToList());
         }
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            return View();
+            return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
         }
 
         public ActionResult List()

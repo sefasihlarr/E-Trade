@@ -1,4 +1,5 @@
-﻿
+﻿@using E_Trade.MvsWebUI.Entity;
+@model Product
 @{
     ViewBag.Title = "Details";
 }
@@ -10,19 +11,18 @@
     <div class="row">
         <div class=" col-md-6">
             <div class="content" id="f-deteil">
-                <img class="card-img" src="~/Theme/img/a-9.jpg" alt="" id="d-img">
+                <img class="card-img" src="@Model.PictureUrl" alt="" id="d-img">
             </div>
         </div>
         <div class="col-md-6">
             <div class="row" id="deskription-product">
                 <div class="col-md-12">
-                    <h1>Ürün-1</h1>
+                    <h1>@Model.Name</h1>
                     <br>
                     <span class="badge badge-primary">Stok Quantity</span>
-                    <span class="produck-number">#1231231123</span>
+                    <span class="produck-number">@Model.Stock</span>
                     <div id="description">
-                        This is area it is have produck deskriptipon This is area it is have produck deskriptipon
-                        This is area it is have produck deskriptipon This is area it is have produck deskriptipon
+                        @Model.Description
                     </div>
                 </div>
             </div>

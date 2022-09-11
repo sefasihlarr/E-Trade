@@ -41,7 +41,6 @@
             <img class="card-img-top" src="~/Theme/img/caurosel-2.png" alt="Card image">
         </div>
     </div>
-
 </div>
 
 <div class="row" id="index-card">
@@ -51,7 +50,9 @@
             <div class="content col-md-3">
                 <img class="card-img" src="@item.PictureUrl" alt="">
                 <div class="card-body">
-                    <h5 class="acrd-title">@item.Name</h5>
+                    <h5 class="acrd-title">
+                    @item.Name
+                    </h5>
                     <p class="card-text">@item.Description</p>
                     <ul>
                         <li><i class="fa fa-star checked"></i></li>
@@ -60,10 +61,9 @@
                         <li><i class="fa fa-star "></i></li>
                         <li><i class="fa fa-star"></i></li>
                     </ul>
-                    <button><small class="card-muted">Button</small></button>
+                    <button><small class="card-muted"><a href="/Home/Details/@item.Id">Button</a></small></button>
                 </div>
             </div>
      }
-        
 </div>
 
