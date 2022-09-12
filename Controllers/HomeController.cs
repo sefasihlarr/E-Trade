@@ -24,5 +24,15 @@ namespace E_Trade.MvsWebUI.Controllers
         {
             return View(_context.Products.ToList());
         }
+
+        public PartialViewResult GetCategories()
+        {
+            return PartialView(_context.Categories.ToList());
+        }
+
+        public PartialViewResult GetProducts()
+        {
+            return PartialView(_context.Products.ToList());
+        }
     }
 }

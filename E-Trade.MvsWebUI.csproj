@@ -264,6 +264,8 @@
     <Content Include="Theme\.git\refs\heads\feat\back-end" />
     <Content Include="Theme\.git\refs\heads\feat\front-end" />
     <Content Include="Theme\.git\refs\heads\master" />
+    <Content Include="Views\Home\GetCategories.cshtml" />
+    <Content Include="Views\Home\GetProducts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
