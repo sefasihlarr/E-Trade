@@ -20,9 +20,21 @@ namespace E_Trade.MvsWebUI.Controllers
             return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
         }
 
-        public ActionResult List()
+        public ActionResult List(int? id)
         {
-            return View(_context.Products.ToList());
+            
+            
+            if (id != null)
+            {
+            
+                return View(_context.Products.Where(i => i.CategoryId == id).ToList());
+            }
+            else
+            {
+                return View(_context.Products.ToList());
+            }
+
+            
         }
 
         public PartialViewResult GetCategories()

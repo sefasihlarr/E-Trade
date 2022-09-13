@@ -1,11 +1,47 @@
 ﻿@model IEnumerable<E_Trade.MvsWebUI.Entity.Category>
+@{
+    //url de  hangi id değerinin aktif oldugunu yada olmadıgını seçtidiğimiz kısım
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
 <ul class="list-group">
-    <li class="list-group-item active" id="group-title">Cras justo odio</li>
+    <li class="list-group-item active" id="group-title" style="text-align:center">Catagories</li>
+    <li class="list-group-item"><a href="/Home/List" style="text-decoration:none;color:white">All Product</a></li>
+    
     @foreach (var item in Model)
     {
-        <li class="list-group-item">
-        <a href="/Home/List/@item.Id"></a>
-    @item.Name</li>
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                // Eger categoriy id varsa url de rengini değiştir 
+                <li class="list-group-item" id="if-category">
+                    <a href="/Home/List/@item.Id" style="text-decoration:none;color:white;" >
+                        @item.Name
+                    </a>
+                </li>
+            }
+            else
+            // id değeri gelmeyenlerin rengini aynı tut
+            {
+                <li class="list-group-item">
+                    <a href="/Home/List/@item.Id" style="text-decoration:none;color:white">
+                        @item.Name
+                    </a>
+                </li>
+            }
+        }
+        else
+        //sayfa yüklendinide yada hiç  aynı seçilmeyen durumlarda da rengi aynı bırak
+        {
+            <li class="list-group-item">
+                <a href="/Home/List/@item.Id" style="text-decoration:none;color:white">
+                    @item.Name
+                </a>
+            </li>
+        }
+
+
+
     }
 </ul>
-   
+

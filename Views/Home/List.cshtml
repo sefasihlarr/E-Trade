@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "List";
 }
+
 <div class="card-story">
     <!-- Coursel -->
     <!-- slider-card -->
@@ -27,16 +28,28 @@
     </span>
 </div>
 <div class="container">
-    <div class="page-title">
+    <div class="page-title" style="text-align:center;margin-left:50px;">
         <h1>Products</h1>
     </div>
     <div class="row">
         <!--Kategory-->
         <div class="category col-md-3 w-20">
-            @Html.Action("GetCategories","Home")
+            @Html.Action("GetCategories", "Home")
         </div>
         <div class="col-md-9">
             <div class="row" id="list-prdt">
+                @if (Model.Count() == 0)
+                {
+                    <div class="alert alert-danger" role="alert" style="margin:50px 0px 0px 30px">
+                        <strong>Warning!!!</strong> This is a Secondary noting Product
+                    </div>
+                }
+                else
+                {
+            <div class="alert alert-light" role="alert" style="margin:50px 0px 0px 30px;">
+                <strong>@Model.Count() count </strong> product found <i class="fa fa-star checked"></i>
+</div>
+                }
                 @foreach (var item in Model)
                 {
                     <div class="content col-md-3">
@@ -54,8 +67,8 @@
                             <button><small class="card-muted">Button</small></button>
                         </div>
                     </div>
-                 }
-                </div>
+                }
+            </div>
         </div>
     </div>
 </div>
