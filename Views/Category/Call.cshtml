@@ -1,0 +1,25 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model Category
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Manages.cshtml";
+}
+<br />
+<h2 style="text-align:center;color:white">Update</h2>
+<br />
+
+@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+{
+    <div class="container">
+        <div style="margin-bottom:20px;width:20%;color:white">
+            @Html.HiddenFor(i=>i.Id)
+            @Html.LabelFor(i => i.Name)
+            @Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom: 20px; width: 20%;color:white">
+            @Html.LabelFor(i => i.Description)
+            @Html.TextBoxFor(i => i.Description, new { @class = "form-control" })
+        </div>
+        <button class="btn" style="background-color: #00FF00;box-shadow:0px 1px 5px 1px white;color:white">Update</button>
+    </div>
+}

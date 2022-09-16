@@ -1,0 +1,48 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model Product
+
+@{
+    ViewBag.Title = "Call";
+    Layout = "~/Views/Shared/_Manages.cshtml";
+}
+<br />
+<h2 style="text-align:center;color:white;">Call</h2>
+<br />
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+<div class="row">
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.HiddenFor(i => i.Id)
+        @Html.LabelFor(i => i.Name)
+        @Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.Description)
+        @Html.TextBoxFor(i => i.Description, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.Stock)
+        @Html.TextBoxFor(i => i.Stock, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.IsApproved)
+        @Html.TextBoxFor(i => i.IsApproved, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.Category.Name)
+        @Html.TextBoxFor(i => i.Category.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.Price)
+        @Html.TextBoxFor(i => i.Price, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+        @Html.LabelFor(i => i.PictureUrl)
+        @Html.TextBoxFor(i => i.PictureUrl, new { @class = "form-control" })
+    </div>
+
+</div>
+    <button class="btn btn-success">Update Puroduct</button>
+}
+

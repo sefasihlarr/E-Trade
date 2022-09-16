@@ -13,7 +13,9 @@ namespace E_Trade.MvsWebUI.Entity
         public int Stock { get; set; }
         public bool IsApproved { get; set; }
         public int CategoryId { get; set; }
+        public int Price { get; set; }
         public string PictureUrl { get; set; }
-        public Category Category { get; set; }
+
+        public virtual Category Category { get; set; }
     }
 }

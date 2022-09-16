@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Theme\css\M-style.css" />
     <Content Include="Theme\img\a-1 %282%29.jpg" />
     <Content Include="Theme\img\a-1.jpg" />
     <Content Include="Theme\img\a-3.jpg" />
@@ -150,10 +151,13 @@
     <Content Include="Theme\css\Product-detalil.css" />
     <Content Include="Theme\css\Product-list.css" />
     <Content Include="Theme\css\style.css" />
+    <Content Include="Theme\js\js.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Entity\Category.cs" />
@@ -173,104 +177,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
-    <Content Include="Theme\.git\COMMIT_EDITMSG" />
-    <Content Include="Theme\.git\config" />
-    <Content Include="Theme\.git\description" />
-    <Content Include="Theme\.git\HEAD" />
-    <Content Include="Theme\.git\hooks\applypatch-msg.sample" />
-    <Content Include="Theme\.git\hooks\commit-msg.sample" />
-    <Content Include="Theme\.git\hooks\fsmonitor-watchman.sample" />
-    <Content Include="Theme\.git\hooks\post-update.sample" />
-    <Content Include="Theme\.git\hooks\pre-applypatch.sample" />
-    <Content Include="Theme\.git\hooks\pre-commit.sample" />
-    <Content Include="Theme\.git\hooks\pre-merge-commit.sample" />
-    <Content Include="Theme\.git\hooks\pre-push.sample" />
-    <Content Include="Theme\.git\hooks\pre-rebase.sample" />
-    <Content Include="Theme\.git\hooks\pre-receive.sample" />
-    <Content Include="Theme\.git\hooks\prepare-commit-msg.sample" />
-    <Content Include="Theme\.git\hooks\push-to-checkout.sample" />
-    <Content Include="Theme\.git\hooks\update.sample" />
-    <Content Include="Theme\.git\index" />
-    <Content Include="Theme\.git\info\exclude" />
-    <Content Include="Theme\.git\logs\HEAD" />
-    <Content Include="Theme\.git\logs\refs\heads\feat\back-end" />
-    <Content Include="Theme\.git\logs\refs\heads\feat\front-end" />
-    <Content Include="Theme\.git\logs\refs\heads\master" />
-    <Content Include="Theme\.git\objects\00\b78579b19f9cbaadf1ebf76b9ccda07072fa45" />
-    <Content Include="Theme\.git\objects\02\be49bba015fdf9835a16d09257ecbc4464a05e" />
-    <Content Include="Theme\.git\objects\04\9e0c797c162044f0c3d377b033bf612933b5d4" />
-    <Content Include="Theme\.git\objects\07\70346794f9cf6b21e507d0ae7bc33e90cef043" />
-    <Content Include="Theme\.git\objects\16\076dd77bf896703fa65bbaf1cf7000e3772f8a" />
-    <Content Include="Theme\.git\objects\1c\9a4282f652c9e9c10650ae215ba58e0f7ab6a4" />
-    <Content Include="Theme\.git\objects\1f\90923a48b47b629a261b2b0ad7ee6bae1d4ed0" />
-    <Content Include="Theme\.git\objects\20\3fefa5defe4cd11b1813e9e19d0737d06e8dc9" />
-    <Content Include="Theme\.git\objects\24\8f28d239cbd3280b6e89bdc90e4a8f82a35b3b" />
-    <Content Include="Theme\.git\objects\25\d88c0f0a18eaeef66bdb35b72f7dbe76274d41" />
-    <Content Include="Theme\.git\objects\2c\9f6320e090791750710ac61f04a5a335952196" />
-    <Content Include="Theme\.git\objects\2f\a489b082cc47adab8fc765436b04694065fd1a" />
-    <Content Include="Theme\.git\objects\31\a71ba9e665081e18ff61bfa66c30c34832c0c1" />
-    <Content Include="Theme\.git\objects\36\20e736377500616655c8f9b730f55e9a256994" />
-    <Content Include="Theme\.git\objects\48\89ceb4d267454657c6130c51acfc0eb83cc2a4" />
-    <Content Include="Theme\.git\objects\48\b1a869a2d648e9a7a176a500a1e24ae5cebc44" />
-    <Content Include="Theme\.git\objects\4c\8dc9fd639fb3c9f3719f30f68aca453a4d06f6" />
-    <Content Include="Theme\.git\objects\4d\b0cb8087358967bd1731b3925eb82df5e7ad4f" />
-    <Content Include="Theme\.git\objects\54\2a904314dadeed44d88506e0de22b95fb77be7" />
-    <Content Include="Theme\.git\objects\55\0794b0ae50d564dcfbcc84a8d4f9232a4c6e05" />
-    <Content Include="Theme\.git\objects\5b\4b8b594a99f667eb890b192cda5e0bc98ee49e" />
-    <Content Include="Theme\.git\objects\6a\15dfc9a57fe9a30b4dd7879fcf3745f819c244" />
-    <Content Include="Theme\.git\objects\6c\879a1d1b5d0aadf53c21b24bd7a3062d2998c5" />
-    <Content Include="Theme\.git\objects\73\07c930ba7337316f6142e8ddfc07a9e15ba900" />
-    <Content Include="Theme\.git\objects\75\b17ffd28ffbaa6eb3a7b0ca47d41b5dc706498" />
-    <Content Include="Theme\.git\objects\77\c58403624e263f5430e7046752a54d4c010415" />
-    <Content Include="Theme\.git\objects\84\68a7f2e8ac1831dcaf5f7872b01e136fa2d637" />
-    <Content Include="Theme\.git\objects\86\12af1d14091ec9e57e474ae7cc879463632e28" />
-    <Content Include="Theme\.git\objects\89\45a24190c6d9dff6f457e15675b294a86fdb73" />
-    <Content Include="Theme\.git\objects\8d\c4c4be99e77a8b6fbfde10886079f31fe059e3" />
-    <Content Include="Theme\.git\objects\97\949e4fe4cbc74a00fa0eebbc64e7f490f4cb09" />
-    <Content Include="Theme\.git\objects\9b\34819f7ef735d16ea0ca66e6d6d74c1686b2ed" />
-    <Content Include="Theme\.git\objects\9c\d359782cbf7ab11fb4e8702b91082f015d2825" />
-    <Content Include="Theme\.git\objects\9d\301e61941d84dac9de4259bfba730f947099e6" />
-    <Content Include="Theme\.git\objects\9e\59972f6d53d6698788374520cc416983154648" />
-    <Content Include="Theme\.git\objects\a1\55bd97b7d50f9b54690bdc88368d7fff86a1eb" />
-    <Content Include="Theme\.git\objects\a4\a5264c08d5bf375c36a043864c424cb9f6de02" />
-    <Content Include="Theme\.git\objects\a8\14bd7b1f8af6737b480e1c97590ef69401446e" />
-    <Content Include="Theme\.git\objects\a9\193fd65c46db72cab4eecd72c5f6bf89e7c0c8" />
-    <Content Include="Theme\.git\objects\aa\a278d82525dacb0b380bc375349a6dbc928815" />
-    <Content Include="Theme\.git\objects\b0\1d4d41407f003fcdc1af3700809376d88a6e89" />
-    <Content Include="Theme\.git\objects\b4\e4fd92af9b2ff0ca9875a37297589d77bcad8d" />
-    <Content Include="Theme\.git\objects\b5\6181eede8c7d8ef75b2c37395cf1c6d7c6f78f" />
-    <Content Include="Theme\.git\objects\be\38ea472e529026f3b22027be54c6526ab5e7e9" />
-    <Content Include="Theme\.git\objects\c0\074c5822144403a890fb347a6af865aa1b48dd" />
-    <Content Include="Theme\.git\objects\c0\52ab78d5e94c0ceb6ef96142d6053c8ed7aabb" />
-    <Content Include="Theme\.git\objects\c2\b132682a682990e6ac061daad3c76beafd5c13" />
-    <Content Include="Theme\.git\objects\c3\f0b449bf8d6b3d4abe7d7430695f7dc6c0f80a" />
-    <Content Include="Theme\.git\objects\c9\5a66bd12844140fdea06098086e1289f0a4492" />
-    <Content Include="Theme\.git\objects\cb\ede3d520683d88f298d73cfd1d0b5c00c73620" />
-    <Content Include="Theme\.git\objects\cc\40dc9ed4ea1c41fa4c2ec1b26d43f33e7c9e2a" />
-    <Content Include="Theme\.git\objects\cc\e6b92a06bba1c2399b21e569799c83572021ef" />
-    <Content Include="Theme\.git\objects\d5\9117a1386d9d5f138fa364530ab7dc9ab184e6" />
-    <Content Include="Theme\.git\objects\dc\33e96608f2548cd9cb88ab654dffc4c2ec171d" />
-    <Content Include="Theme\.git\objects\dc\a95aa8ce35ba07214b2e7f837d5f7506ed7b0e" />
-    <Content Include="Theme\.git\objects\de\b06ca967d3558164a394e2c07f4a7b28e27d65" />
-    <Content Include="Theme\.git\objects\de\e82efe1380b65695cd28364b10b71024cd99e8" />
-    <Content Include="Theme\.git\objects\df\5b15a969adc558752639d4a71e448980c78206" />
-    <Content Include="Theme\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
-    <Content Include="Theme\.git\objects\eb\7acd33c415716f693c82bbdec669e5555e7446" />
-    <Content Include="Theme\.git\objects\ec\dcd3e0f0537cf3c2ac676cd58423427a3459ef" />
-    <Content Include="Theme\.git\objects\ee\2f466a037c6d9de0a850f31bc9ab53f79d2429" />
-    <Content Include="Theme\.git\objects\fa\51a43bdb60960a90466ca76e3e1ec05ef11c0a" />
-    <Content Include="Theme\.git\objects\fb\94abec8c07a7a567ce70125fadfbe0d32fc7e0" />
-    <Content Include="Theme\.git\ORIG_HEAD" />
-    <Content Include="Theme\.git\refs\heads\feat\back-end" />
-    <Content Include="Theme\.git\refs\heads\feat\front-end" />
-    <Content Include="Theme\.git\refs\heads\master" />
     <Content Include="Views\Home\GetCategories.cshtml" />
     <Content Include="Views\Home\GetProducts.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Call.cshtml" />
+    <Content Include="Views\Shared\_Manages.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Call.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -281,10 +196,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Theme\.git\objects\info\" />
-    <Folder Include="Theme\.git\objects\pack\" />
-    <Folder Include="Theme\.git\refs\tags\" />
-    <Folder Include="Theme\js\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

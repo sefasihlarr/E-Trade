@@ -1,0 +1,44 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Manages.cshtml";
+}
+
+<br />
+<h2 style="text-align:center;color:white">Index</h2>
+<br />
+<div class="container">
+    <table class="table table-bordered" style="color:white;width:auto">
+        <tr>
+            <td style="width:3%">ID</td>
+            <td style="width:15%">Name</td>
+            <td style="width:15%">Description</td>
+            <td style="width:15%">Stock</td>
+            <td style="width:15%">Approve</td>
+            <td style="width:15%">Category Name</td>
+            <td style="width:15%">Price</td>
+            <td style="width:1%">Picture</td>
+            <td style="width:2%;box-shadow:0px 1px 5px 1px white">Delete</td>
+            <td style="width:2% ;box-shadow: 0px 1px 5px 1px white">Update</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Stock</td>
+                <td>@item.IsApproved</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Price<span>$</span></td>
+                <td><img src="/Theme/img/@item.PictureUrl" alt="" /></td>
+                <td><a href="~/Product/Delete/@item.Id" class="btn btn-danger" style="text-decoration: none; box-shadow: 0px 1px 5px 1px white">Delete</a></td>
+                <td><a href="~/Product/Call/@item.Id" class="btn btn-warning" style="color: black; text-decoration: none; box-shadow: 0px 1px 5px 1px white">Update</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<a href="~/Product/Create" class="btn" style="margin-left: 23px; box-shadow: 0px 1px 5px 1px; background-color: #00FF00;color:white">New Product</a>
+

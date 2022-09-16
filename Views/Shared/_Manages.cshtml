@@ -1,20 +1,20 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
+﻿
+<!DOCTYPE html>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Hello, world!</title>
-    <link rel="stylesheet" href="~/Theme/css/style.css">
-    <link rel="stylesheet" href="~/Theme/css/Product-detalil.css">
-    <link rel="stylesheet" href="~/Theme/css/Product-list.css">
+    <title>_Manages</title>
+    <link rel="stylesheet" href="~/Theme/css/M-style.css">
+    <link rel="stylesheet" href="~/Theme/js/js.js">
+    <script>
+    $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })</script>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="container">
         <nav class="navbar navbar-expand-lg ">
             <div class="container">
@@ -36,9 +36,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="~/Home/Details">Details</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Admin/Index">Admin</a>
-                            </li>
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,17 +46,25 @@
             </div>
         </nav>
     </div>
-
-    
-    
-
     <div class="container">
-        @RenderBody()
-        <!-- Cards-->
+        <div class="row">
+            <div class="col-md-2" style="margin-top:90px">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" style="text-align:center">
+                        Manage
+                    </a>
+                    <a href="/Admin/Index" class="list-group-item list-group-item-action">Home</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Category operations</a>
+                    <a href="/Product/Index" class="list-group-item list-group-item-action">Producut operations</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                </div>
+            </div>
+            <div class="col-md-10">@RenderBody()</div>
+        </div>
+
+
     </div>
-
-    <!--Footer-->>
-
     <footer class="lightbg- text-center text-lg-start">
         <!-- Grid container -->
         <div class="container p-4">
@@ -148,14 +153,8 @@
             </div>
             <!--Grid row-->
         </div>
-        <!-- Grid container -->
-        <!-- Copyright -->
-        <div class="text-center p-3" style="backdrop-filter:blur(1rem);">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

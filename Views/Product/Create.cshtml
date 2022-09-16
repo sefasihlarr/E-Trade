@@ -1,0 +1,57 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Manages.cshtml";
+}
+<br />
+<h2 style="color:white;text-align:center">Create</h2>
+<br />
+
+<div class="container">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-date" }))
+    {
+        if (TempData["AlertMessage"] != null)
+        {
+            <div class="alert alert-succes" style="background-color:greenyellow;color:white;width:710px;text-align:center">
+                <strong>Warning!</strong>  @TempData["AlertMessage"]
+            </div>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-primary" style="background-color: red; color: white; width: 710px;text-align:center">
+                <strong>Warning!</strong>  @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <div class="row">
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Name, new { @placeholder = "Name", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Description, new { @placeholder = "Description", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Stock, new { @placeholder = "Stock", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.IsApproved, new { @placeholder = "IsApproved", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Category.Name, new { @placeholder = "Category", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Price, new { @placeholder = "Price", @class = "form-control" })
+            </div>
+
+            <input type="file" name="PictureUrl" />
+        </div>
+
+        <button class="btn btn-success">Creat Puroduct</button>
+    }
+
+</div>
+
+
+

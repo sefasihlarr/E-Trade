@@ -1,0 +1,36 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model IEnumerable<Category>
+
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Manages.cshtml";
+}
+<br />
+
+<h2 style="text-align:center;color:white;">List</h2>
+
+<br />
+<div class="container">
+    <table class="table table-bordered" style="color:white;width:auto">
+        <tr>
+            <td  style="width:3%">ID</td>
+            <td>Name</td>
+            <td >Desctiption</td>
+            <td style="width:5%;box-shadow:0px 1px 5px 1px white">Delete</td>
+            <td style="width: 5%; box-shadow: 0px 1px 5px 1px white">Update</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Description</td>
+        <td><a href="~/Category/Delete/@item.Id" class="btn btn-danger" style="text-decoration: none; box-shadow: 0px 1px 5px 1px white">Delete</a></td>
+        <td><a href="~/Category/Call/@item.Id" class="btn btn-warning" style="color: black; text-decoration: none; box-shadow: 0px 1px 5px 1px white">Update</a></td>
+    </tr>
+        }
+    </table>
+</div>
+
+<a href="~/Category/Create" class="btn" style="margin-left: 23px; box-shadow: 0px 1px 5px 1px; background-color: #00FF00;color:white">New Category</a>

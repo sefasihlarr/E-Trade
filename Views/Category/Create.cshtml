@@ -1,0 +1,22 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@model Category
+@{
+    ViewBag.Title = "Create";
+Layout = "~/Views/Shared/_Manages.cshtml";
+}
+<br />
+<h2 style="text-align:center;color:white">Create</h2>
+<br />
+<div class="container">
+    <form class="form-group" method="post">
+        <div style="margin-bottom:20px;width:35%;">
+            @Html.TextBoxFor(i => i.Name, new { placeholder = "Name", @class = "form-control" })
+        </div>
+        <div style="margin-bottom: 20px; width: 35%">
+            @Html.TextBoxFor(i=> i.Description,new  {placeholder = "Descirption", @class = "form-control" })
+        </div>
+        <button class="btn" style="background-color: #00FF00; color: white; box-shadow: 0px 1px 5px 1px white ">Add</button>
+    </form>
+    
+</div>
+
