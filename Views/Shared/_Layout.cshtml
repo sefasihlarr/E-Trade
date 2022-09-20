@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>E-Trade</title>
     <link rel="stylesheet" href="~/Theme/css/style.css">
     <link rel="stylesheet" href="~/Theme/css/Product-detalil.css">
     <link rel="stylesheet" href="~/Theme/css/Product-list.css">
@@ -27,18 +28,72 @@
                             <li class="nav-item">
                                 <a class="head" href="#">E-Trade</a>
                             </li>
+
+                            <!--Unregistered users-->
                             <li class="nav-item">
                                 <a class="nav-link active" href="~/Home/Index">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/List">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/Details">Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Admin/Index">Admin</a>
-                            </li>
+
+
+                            @if (User.IsInRole("customer"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/List">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/SignOut/">LogOut</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("worker"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/Details">Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/List">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/SignOut/">LogOut</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("boss"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/List">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/Details">Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Sales/Index/">Sales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/SignOut/">LogOut</a>
+                                </li>
+
+                            }
+                            @if (User.IsInRole("admin"))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Admin/Index">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/List">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/Details">Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Sales/Index/">Sales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/SignOut/">Exit</a>
+                                </li>
+                            }
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Account/SignOut/">Login</a>
+                        </li>
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,10 +104,9 @@
             </div>
         </nav>
     </div>
-
-    
-    
-
+    <br />
+    <span><h3 style="text-align:center"><strong>Welcome</strong> @Session["Name"]  @Session["SurName"]</h3></span>
+    <br />
     <div class="container">
         @RenderBody()
         <!-- Cards-->
@@ -156,6 +210,7 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <script>$('.dropdown-toggle').dropdown()</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -12,17 +12,18 @@ namespace E_Trade.MvsWebUI.Controllers
     {
         DataContext _context = new DataContext();
         // GET: Product
+        [Authorize]
         public ActionResult Index()
         {
             return View(_context.Products.ToList());
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
-
+        
         [HttpPost]
         [Obsolete]
         public ActionResult Create(Product CreateProduct)
@@ -66,7 +67,7 @@ namespace E_Trade.MvsWebUI.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         public ActionResult Call(int id)
         {
             var _call = _context.Products.Find(id);

@@ -16,48 +16,20 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" style="background-color:red;"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="head" href="#">E-Trade</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="~/Home/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/List">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/Details">Details</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn" type="submit" style="color:white;">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-md-2" style="margin-top:90px">
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" style="text-align:center">
+                    <a href="#" class="list-group-item list-group-item-action " style="text-align:center;background-color:transparent;color:white;border:groove">
                         Manage
                     </a>
+                    <a href="/Home/Index" class="list-group-item list-group-item-action">View site</a>
                     <a href="/Admin/Index" class="list-group-item list-group-item-action">Home</a>
-                    <a href="/Category/List" class="list-group-item list-group-item-action">Category operations</a>
-                    <a href="/Product/Index" class="list-group-item list-group-item-action">Producut operations</a>
-                    <a href="/Category/List" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                    <a href="/Category/List" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                    <a href="/Product/Index" class="list-group-item list-group-item-action">Product operations</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Category Operations</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Orders</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Employees Settings</a>
+                    <a href="/Category/List" class="list-group-item list-group-item-action">Customers Settings</a>
+                    <a href="/Account/SignOut/" class="list-group-item list-group-item-action" style="color:white;background-color:red;text-align:center">Exit</a>
                 </div>
             </div>
             <div class="col-md-10">@RenderBody()</div>

@@ -12,17 +12,18 @@ namespace E_Trade.MvsWebUI.Controllers
     {
         DataContext _contex = new DataContext();
         // GET: Category
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult Create(Category AddCategory)
         {
@@ -37,6 +38,7 @@ namespace E_Trade.MvsWebUI.Controllers
             _contex.SaveChanges();
             return RedirectToAction("List");
         }
+        [Authorize]
         public ActionResult Call(int id)
         {
             var _call = _contex.Categories.Find(id);
@@ -51,6 +53,7 @@ namespace E_Trade.MvsWebUI.Controllers
             return RedirectToAction("List");
 
         }
+        [Authorize]
         public ActionResult List()
         {
             

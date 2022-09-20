@@ -11,15 +11,21 @@ namespace E_Trade.MvsWebUI.Controllers
     {
         DataContext _context = new DataContext();
         // GET: Home
+
         public ActionResult Index()
         {
             return View(_context.Products.ToList());
         }
+
+        [Authorize]
         public ActionResult Details(int id)
         {
-            return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
+             
+                return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
+      
         }
 
+        [Authorize]
         public ActionResult List(int? id)
         {
             
@@ -36,7 +42,7 @@ namespace E_Trade.MvsWebUI.Controllers
 
             
         }
-
+        [Authorize]
         public PartialViewResult GetCategories()
         {
             return PartialView(_context.Categories.ToList());

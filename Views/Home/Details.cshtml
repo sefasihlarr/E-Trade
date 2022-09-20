@@ -6,8 +6,10 @@
 
 <div class="container ">
     <div class="page-title">
+        <br />
         <h1>Details</h1>
     </div>
+    <br />
     <div class="row">
         <div class=" col-md-6">
             <div class="content" id="f-deteil">
@@ -30,14 +32,20 @@
             <br />
             <div class="row" id="add-to-card">
                 <h4>@Model.Price<span>$</span></h4>
-                <button class="btn" style="width:50%;" id="btn-add">Add To Card</button>
+                @using (Html.BeginForm("AddToCard", "Card", FormMethod.Post))
+                {
+                    @Html.HiddenFor(i => i.Id)
+                    <button type="submit" style="width:50%;" id="btn-add">Add To Card</button>
+                }
+
             </div>
         </div>
         <div class="container">
             <h1 style="text-align:center;margin:50px 0px 0px 80px">RECOMMENDED FOR YOU</h1>
             <div class="row" id="details-product">
-                @Html.Action("GetProducts","Home")
+                @Html.Action("GetProducts", "Home")
             </div>
         </div>
     </div>
+
 </div>
