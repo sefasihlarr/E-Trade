@@ -1,0 +1,53 @@
+﻿@using E_Trade.MvsWebUI.Entity;
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<div class="text-center">Your Order Information</div>
+<br />
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        if (TempData["AlertMessage"] != null)
+        {
+            <div class="alert alert-succes" style="background-color:greenyellow;color:white;width:710px;text-align:center">
+                <strong>Warning!</strong>  @TempData["AlertMessage"]
+            </div>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-primary" style="background-color: red; color: white; width: 710px;text-align:center">
+                <strong>Warning!</strong>  @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <div class="row" style="margin-left:270px">
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.FullName, new { @placeholder = "FullName", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.AdressTitile, new { @placeholder = "AdressTitile", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Adress, new { @placeholder = "Adress", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.City, new { @placeholder = "City", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.District, new { @placeholder = "District", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.Street, new { @placeholder = "Street", @class = "form-control" })
+            </div>
+            <div style="margin-bottom: 10px; width: 35%" class="col-md-3">
+                @Html.TextBoxFor(i => i.PostCode, new { @placeholder = "PostCode", @class = "form-control" })
+            </div>
+        </div>
+        <button class="btn btn-success" style="margin-left:280px">Approve</button>
+
+
+    }
+
+</div>
+
