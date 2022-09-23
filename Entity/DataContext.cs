@@ -16,5 +16,7 @@ namespace E_Trade.MvsWebUI.Entity
         public DbSet<Category> Categories { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
     }
 }

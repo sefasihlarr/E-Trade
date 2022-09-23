@@ -17,5 +17,6 @@ namespace E_Trade.MvsWebUI.Entity
         public string PictureUrl { get; set; }
 
         public virtual Category Category { get; set; }
+        
     }
 }
