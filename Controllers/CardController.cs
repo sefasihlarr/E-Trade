@@ -48,6 +48,11 @@ namespace E_Trade.MvsWebUI.Controllers
 
         }
 
+        public PartialViewResult Summary()
+        {
+            return PartialView(GetCard());
+        }
+
         public ActionResult Order(Order AddOrder)
         {
             var card = GetCard();

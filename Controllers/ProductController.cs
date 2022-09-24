@@ -39,6 +39,7 @@ namespace E_Trade.MvsWebUI.Controllers
 
             }
             var test = CreateProduct.Category.Name;
+
             
             foreach (var item in categoriler)
             {
